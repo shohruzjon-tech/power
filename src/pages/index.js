@@ -1,28 +1,32 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { createGlobalStyle } from "styled-components"
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from "./Home/home.component";
+require('../assets/Euclid Regular.ttf');
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const GlobalStyle = createGlobalStyle`
+  body {
+    padding:0;
+    margin:0;
+  }
+
+  *{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family:'Euclid', serif;
+  }
+`
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+     <Seo title='Welcome to our webpage'/>
+     <GlobalStyle/>
+     <Home/>
   </Layout>
 )
 
